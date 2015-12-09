@@ -1,0 +1,3 @@
+[submodule "hdp/base"]
+	path = hdp/base
+	url = https://github.com/randerzander/docker-ambari.git
