@@ -1,6 +1,5 @@
 #!/bin/bash
 SLEEP_SEC="20"
-AMBARI_PORT="8080"
 HDP_IMAGE_NAME="jdye64/hdp234"
 
 DOCKER_MACHINE_NAME=env | grep docker | grep DOCKER_MACHINE_NAME | cut -f2 -d'='
@@ -25,8 +24,9 @@ CONTAINER_ID=$(docker run -t -d -P -h docker.dev $HDP_IMAGE_NAME)
 
 IP_ADDR=$(docker-machine inspect $DOCKER_MACHINE_NAME | grep IPAddress | cut -f2 -d':' | cut -f2 -d'"')
 echo "IPAddress: $IP_ADDR"
+AMBARI_PORT=$(docker ps | grep $HDP_IMAGE_NAME | tr "," "\n" | grep 8080/tcp | cut -f2 -d ':' | cut -f1 -d '-')
 AMBARI_URL="http://$IP_ADDR:$AMBARI_PORT"
 echo "Opening $HDP_IMAGE_NAME WebUI at $AMBARI_URL"
-echo "Sleeping for $SLEEP_SEC seconds before opening browser to give NiFi time to launch WebUI"
+echo "Sleeping for $SLEEP_SEC seconds before opening browser to give $HDP_IMAGE_NAME time to launch WebUI"
 sleep $SLEEP_SEC
 open $AMBARI_URL
