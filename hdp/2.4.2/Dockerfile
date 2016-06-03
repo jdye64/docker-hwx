@@ -6,8 +6,6 @@ RUN yum install -y ambari-* sudo tar unzip wget curl postgresql-jdbc net-snmp ne
 RUN ambari-server setup --silent
 RUN ambari-server setup --jdbc-db=postgres --jdbc-driver=/usr/share/java/postgresql-jdbc.jar
 
-# Kerberos support
-RUN yum install -y krb5-server krb5-libs krb5-auth-dialog krb5-workstation
 # HST tool
 #RUN rpm -ivh /etc/yum.repos.d/hst.rpm
 
