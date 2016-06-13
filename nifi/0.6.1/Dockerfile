@@ -4,7 +4,7 @@ FROM java:8u91-jdk
 RUN apt-get update
 
 # Install system dependencies
-RUN apt-get install -y unzip ant git
+RUN apt-get install -y unzip ant git vim
 
 # Install Maven
 ADD apache-maven-3.3.9-bin.tar.gz /
