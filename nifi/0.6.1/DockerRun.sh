@@ -3,6 +3,9 @@ SLEEP_SEC="20"
 NIFI_PORT="8080"
 NIFI_IMAGE_NAME="jdye64/nifi:0.6.1"
 
+# Make sure the eval is set
+eval $(docker-machine env docker-hwx)
+
 DOCKER_MACHINE_NAME=env | grep docker | grep DOCKER_MACHINE_NAME | cut -f2 -d'='
 echo "Current Docker Machine '$DOCKER_MACHINE_NAME'"
 
