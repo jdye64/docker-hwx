@@ -1,1 +1,0 @@
-This contains a list of DockerRun scripts for docker images that are available for HDP in the public Docker Hub.
