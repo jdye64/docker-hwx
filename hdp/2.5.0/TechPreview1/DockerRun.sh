@@ -1,6 +1,6 @@
 #!/bin/bash
-SLEEP_SEC="20"
-HDP_IMAGE_NAME="jdye64/hdp250-TP1"
+SLEEP_SEC="30"
+HDP_IMAGE_NAME="jdye64/hdp:250-TP1"
 eval "$(docker-machine env docker-hwx)"
 
 DOCKER_MACHINE_NAME=env | grep docker | grep DOCKER_MACHINE_NAME | cut -f2 -d'='
