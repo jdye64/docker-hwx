@@ -9,6 +9,7 @@ RUN apt-get install -y unzip ant git vim
 # Install Apache NiFi 0.6.1
 RUN wget http://s3.amazonaws.com/public-repo-1.hortonworks.com/HDF/1.1.2.1/HDF-1.1.2.1-34.zip
 RUN unzip HDF-1.1.2.1-34.zip
+RUN rm HDF-1.1.2.1-34.zip
 
 # Exposes the needed baseline ports
 EXPOSE 8080
