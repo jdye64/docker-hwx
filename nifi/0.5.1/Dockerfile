@@ -9,6 +9,7 @@ RUN apt-get install -y unzip ant git vim
 # Install Apache NiFi 0.5.1
 RUN wget https://archive.apache.org/dist/nifi/0.5.1/nifi-0.5.1-bin.tar.gz
 RUN tar -xzvf nifi-0.5.1-bin.tar.gz
+RUN rm /nifi-0.5.1-bin.tar.gz
 
 # Exposes the needed baseline ports
 EXPOSE 8080
