@@ -1,6 +1,7 @@
 FROM java:8u91-jdk
 
-ENV NIFI_HOME /nifi-0.7.0
+ENV NIFI_VERSION=0.7.0
+ENV NIFI_HOME=/nifi-$NIFI_VERSION
 
 # Update apt-get repository
 RUN apt-get update
@@ -16,4 +17,4 @@ RUN rm /nifi-0.7.0-bin.tar.gz
 EXPOSE 8080
 
 # Startup NiFi
-CMD nifi-0.7.0/bin/nifi.sh run
+CMD $NIFI_HOME/bin/nifi.sh run

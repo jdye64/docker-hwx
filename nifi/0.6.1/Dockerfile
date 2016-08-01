@@ -1,5 +1,9 @@
 FROM java:8u91-jdk
 
+ENV NIFI_VERSION=0.6.1
+ENV NIFI_HOME=/nifi-$NIFI_VERSION
+ENV TESSDATA_PREFIX /usr/share/tesseract-ocr/tessdata
+
 # Update apt-get repository
 RUN apt-get update
 
@@ -19,4 +23,4 @@ RUN rm /nifi-0.6.1-bin.tar.gz
 EXPOSE 8080
 
 # Startup NiFi
-CMD nifi-0.6.1/bin/nifi.sh run
+CMD $NIFI_HOME/bin/nifi.sh run
