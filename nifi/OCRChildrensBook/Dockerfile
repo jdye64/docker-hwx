@@ -14,9 +14,9 @@ RUN git clone https://github.com/tesseract-ocr/tesseract.git
 RUN cd tesseract && ./autogen.sh && ./configure && LDFLAGS="-L/usr/local/lib" CFLAGS="-I/usr/local/include" make && make install && ldconfig
 
 # Installs the Tesseract english language support
-RUN wget https://github.com/tesseract-ocr/tesseract/archive/3.01.tar.gz
-RUN tar -xzvf 3.01.tar.gz
-RUN mv /tesseract-3.01/tessdata/* /usr/local/share/tessdata/.
+#RUN wget https://github.com/tesseract-ocr/tesseract/archive/3.01.tar.gz
+#RUN tar -xzvf 3.01.tar.gz
+#RUN mv /tesseract-3.01/tessdata/* /usr/local/share/tessdata/.
 
 # Clones jdye64 nifi-addons repo which contains a list of several useful NiFi processors
 RUN git clone https://github.com/jdye64/nifi-addons.git
