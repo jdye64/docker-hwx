@@ -22,8 +22,8 @@ RUN cd tesseract && ./autogen.sh && ./configure && LDFLAGS="-L/usr/local/lib" CF
 RUN git clone https://github.com/jdye64/nifi-addons.git
 
 # Build the "nifi-ocr" custom processor and add to local installation
-RUN cd nifi-addons/Processors && mvn clean install package -DskipTests && cp ./nifi-ocr/nifi-ocr-nar/target/nifi-ocr-nar-0.6.1.nar $NIFI_HOME/lib
+RUN cd nifi-addons/Processors/nifi-ocr/nifi-ocr-processors && mvn clean install package -DskipTests && cp ./nifi-ocr-nar/target/nifi-ocr-nar-0.6.1.nar $NIFI_HOME/lib
 
 # Adds the demo assets
 ADD InputAssets /Input
-ADD flow.xml.gz /nifi-0.6.1/conf
+ADD flow.xml.gz $NIFI_HOME/conf
