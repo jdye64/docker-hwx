@@ -26,7 +26,8 @@ RUN cd nifi-addons/Processors/nifi-ocr/nifi-ocr-processors && mvn clean install 
 
 RUN cd / && ls -l
 RUN pwd && ls -l
-RUN cp ../nifi-ocr-nar/target/nifi-ocr-nar-0.7.0.nar $NIFI_HOME/lib
+RUN cd RUN cp /nifi-addons/nifi-ocr/nifi-ocr-nar/target/ && ls -l
+RUN cp /nifi-addons/nifi-ocr/nifi-ocr-nar/target/nifi-ocr-nar-0.7.0.nar $NIFI_HOME/lib
 
 # Adds the demo assets
 ADD InputAssets /Input
