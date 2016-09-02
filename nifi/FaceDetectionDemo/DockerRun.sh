@@ -1,7 +1,7 @@
 #!/bin/bash
 SLEEP_SEC="30"
 NIFI_PORT="8080"
-NIFI_IMAGE_NAME="jdye64/docker-hwx:facedetectiondemo"
+NIFI_IMAGE_NAME="jdye64/docker-hwx:nifi-facedetectiondemo"
 
 # Checks for an instance of $NIFI_IMAGE_NAME already running
 CONTAINER_ID=$(docker ps | grep $NIFI_IMAGE_NAME | awk '{ print $1 }')
