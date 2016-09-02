@@ -1,16 +1,10 @@
 #!/bin/bash
 SLEEP_SEC="30"
 NIFI_PORT="8080"
-NIFI_IMAGE_NAME="jdye64/nifi:facedetectiondemo"
-
-# Make sure the eval is set
-eval $(docker-machine env docker-hwx)
-
-DOCKER_MACHINE_NAME=env | grep docker | grep DOCKER_MACHINE_NAME | cut -f2 -d'='
-echo "Current Docker Machine '$DOCKER_MACHINE_NAME'"
+NIFI_IMAGE_NAME="jdye64/docker-hwx:facedetectiondemo"
 
 # Checks for an instance of $NIFI_IMAGE_NAME already running
-CONTAINER_ID=$(docker ps | grep nifi:facedetectiondemo | awk '{ print $1 }')
+CONTAINER_ID=$(docker ps | grep $NIFI_IMAGE_NAME | awk '{ print $1 }')
 if [ -n "$CONTAINER_ID" ]; then
 	echo "There is already an instance of $NIFI_IMAGE_NAME running as container $CONTAINER_ID"
 	while true; do
@@ -24,11 +18,9 @@ if [ -n "$CONTAINER_ID" ]; then
 fi
 
 echo "Launching latest NiFi instance"
-CONTAINER_ID=$(docker run -t -d -p $NIFI_PORT:$NIFI_PORT $NIFI_IMAGE_NAME)
+CONTAINER_ID=$(docker run -t -d -p 9393:9393 -p 8888:8888 -p 9292:9292 $NIFI_IMAGE_NAME)
 
-IP_ADDR=$(docker-machine inspect $DOCKER_MACHINE_NAME | grep IPAddress | cut -f2 -d':' | cut -f2 -d'"')
-echo "IPAddress: $IP_ADDR"
-NIFI_URL="http://$IP_ADDR:$NIFI_PORT/nifi"
+NIFI_URL="http://127.0.0.1:9292/nifi"
 echo "Opening NiFi WebUI at $NIFI_URL"
 echo "Sleeping for $SLEEP_SEC seconds before opening browser to give NiFi time to launch WebUI"
 sleep $SLEEP_SEC

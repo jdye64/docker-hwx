@@ -1,3 +1,2 @@
 echo "Creating NiFi FaceDetectionDemo"
-eval "$(docker-machine env docker-hwx)"
-docker build -t jdye64/nifi:facedetectiondemo .
+docker build -t jdye64/docker-hwx:facedetectiondemo .
