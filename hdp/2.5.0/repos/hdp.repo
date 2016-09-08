@@ -1,0 +1,17 @@
+#VERSION_NUMBER=2.5.0.0-1182
+[HDP-2.5.0.0]
+name=HDP Version - HDP-2.5.0.0
+baseurl=http://public-repo-1.hortonworks.com/HDP-LABS/Projects/Erie-Preview/2.5.0.0-7/centos7/
+gpgcheck=1
+gpgkey=http://public-repo-1.hortonworks.com/HDP-LABS/Projects/Erie-Preview/2.5.0.0-7/centos7/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
+enabled=1
+priority=1
+
+
+[HDP-UTILS-1.1.0.21]
+name=Hortonworks Data Platform Utils Version - HDP-UTILS-1.1.0.21
+baseurl=http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos7
+gpgcheck=1
+gpgkey=http://public-repo-1.hortonworks.com/HDP-LABS/Projects/Erie-Preview/2.5.0.0-7/centos7/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
+enabled=1
+priority=1

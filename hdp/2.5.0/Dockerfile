@@ -1,4 +1,5 @@
-FROM sequenceiq/dnsmasq:pam-fix
+FROM centos:7.2.1511
+MAINTAINER Jeremy Dyer <jdye64@gmail.com>
 
 # Setup Ambari
 ADD repos/* /etc/yum.repos.d/
@@ -6,11 +7,8 @@ RUN yum install -y ambari-* sudo tar unzip wget curl postgresql-jdbc net-snmp ne
 RUN ambari-server setup --silent
 RUN ambari-server setup --jdbc-db=postgres --jdbc-driver=/usr/share/java/postgresql-jdbc.jar
 
-# HST tool
-#RUN rpm -ivh /etc/yum.repos.d/hst.rpm
-
 # pre-install HDP packages then remove the repo so they wont conflict with Ambari installed HDP repos
-RUN yum install -y hadoop* zookeeper hbase_* phoenix_* ranger* rpcbind storm_* kafka_* pig_* spark_* lzo snappy snappy-devel lucidworks-hdpsearch
+RUN yum install -y hadoop* hive* zookeeper hbase_* phoenix_* ranger* rpcbind storm_* kafka_* pig_* spark_* lzo snappy snappy-devel lucidworks-hdpsearch
 RUN rm /etc/yum.repos.d/hdp*.repo
 
 # Setup networking
