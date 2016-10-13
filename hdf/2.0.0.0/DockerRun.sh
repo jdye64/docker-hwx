@@ -18,7 +18,7 @@ if [ -n "$CONTAINER_ID" ]; then
 fi
 
 echo "Launching latest HDF instance"
-CONTAINER_ID=$(docker run -t -d -p $NIFI_PORT:$NIFI_PORT $NIFI_IMAGE_NAME)
+CONTAINER_ID=$(docker run --privileged -t -d -p $NIFI_PORT:$NIFI_PORT $NIFI_IMAGE_NAME)
 
 IP_ADDR="127.0.0.1"
 echo "IPAddress: $IP_ADDR"
