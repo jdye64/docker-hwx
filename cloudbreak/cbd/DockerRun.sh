@@ -1,7 +1,7 @@
 #!/bin/bash
 SLEEP_SEC="50"
-NIFI_PORT="8080"
-NIFI_IMAGE_NAME="jdye64/docker-hwx:hdf-2.0.0.0"
+NIFI_PORT="3000"
+NIFI_IMAGE_NAME="jdye64/docker-hwx:cloudbreak-cbd"
 
 # Checks for an instance of $NIFI_IMAGE_NAME already running
 CONTAINER_ID=$(docker ps | grep $NIFI_IMAGE_NAME | awk '{ print $1 }')
@@ -18,7 +18,7 @@ if [ -n "$CONTAINER_ID" ]; then
 fi
 
 echo "Launching latest HDF instance"
-CONTAINER_ID=$(docker run --privileged -t -d -p $NIFI_PORT:$NIFI_PORT $NIFI_IMAGE_NAME)
+CONTAINER_ID=$(docker run -t -d -p $NIFI_PORT:$NIFI_PORT $NIFI_IMAGE_NAME)
 
 IP_ADDR="127.0.0.1"
 echo "IPAddress: $IP_ADDR"
