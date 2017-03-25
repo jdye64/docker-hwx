@@ -1,7 +1,7 @@
 #!/bin/bash
 SLEEP_SEC="20"
 NIFI_PORT="8080"
-NIFI_IMAGE_NAME="jdye64/docker-hwx:spark-1.6.3-standalone"
+NIFI_IMAGE_NAME="jdye64/docker-hwx:spark-2.0.1-standalone"
 
 # Make sure the eval is set
 eval $(docker-machine env docker-hwx)
