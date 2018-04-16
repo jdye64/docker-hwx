@@ -13,10 +13,10 @@ RUN mkdir -p /usr/share/nginx/html/ambari/centos7 && cd /usr/share/nginx/html/am
 RUN mkdir -p /usr/share/nginx/html/hdp/centos7 && cd /usr/share/nginx/html/hdp/centos7 && reposync -r HDP-2.6.4.0
 
 # Install the HDP-UTILS repo
-RUN mkdir -p /usr/share/nginx/html/hdp-utils/centos7 && cd /usr/share/nginx/html/hdp-utils/centos7 && reposync -r HDP-UTILS-1.1.0.21
+RUN mkdir -p /usr/share/nginx/html/hdp-utils/centos7 && cd /usr/share/nginx/html/hdp-utils/centos7 && reposync -r HDP-UTILS-1.1.0.22
 
 # Create the repos metadata
-RUN createrepo /usr/share/nginx/html/ambari/centos7/ambari-2.6.1.5 && createrepo /usr/share/nginx/html/hdp/centos7/HDP-2.6.4.0 && createrepo /usr/share/nginx/html/hdp-utils/centos7/HDP-UTILS-1.1.0.21
+RUN createrepo /usr/share/nginx/html/ambari/centos7/ambari-2.6.1.5 && createrepo /usr/share/nginx/html/hdp/centos7/HDP-2.6.4.0 && createrepo /usr/share/nginx/html/hdp-utils/centos7/HDP-UTILS-1.1.0.22
 
 RUN yum install -y yum-plugin-priorities
 
