@@ -1,16 +1,5 @@
 version: '2'
 services:
-  postgres.dev:
-    build:
-        context: ./containers/postgres
-        dockerfile: Dockerfile
-        args:
-            DDL_URL: https://raw.githubusercontent.com/apache/ambari/branch-2.4/ambari-server/src/main/resources/Ambari-DDL-Postgres-CREATE.sql
-    image: jdye64/docker-hwx:hdp-postgres-253
-    networks:
-     - dev
-    hostname: postgres
-    domainname: dev
   ambari-server.dev:
     build:
         context: ./containers/ambari-server
